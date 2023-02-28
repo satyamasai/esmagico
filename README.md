@@ -41,6 +41,7 @@ similarly if you want to sign up as a admin you can sign up as a admin in [ For 
  <img src="https://user-images.githubusercontent.com/101590753/221924541-41ab29f8-7e49-4d5c-879b-cc1e77751f75.png" alt="user dashboard"/>  
 
 
+
 -------------------------------------------------------------------------
 [] validation:  if you are not logged in you cannot see user dashboard / admin dash board ;
   []  Admin can see all of the user and admin that is registered with the application;
