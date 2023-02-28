@@ -6,6 +6,7 @@ const UserLogin = () => {
    const navigate= useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loader,setLoader] = useState(false)
   
   
     const handleEmailChange = (event) => {
@@ -17,17 +18,23 @@ const UserLogin = () => {
     };
   
     const handleSubmit = (event) => {
+
       event.preventDefault();
+      
       if (email && password) {
+        setLoader(true)
         // console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
      let loginData={email,password}
      axios.post("http://localhost:8080/user/login",loginData)
-     .then((res)=>{console.log(res)
+     .then((res)=>{
         localStorage.setItem("userToken",JSON.stringify(res.data.document.token))
-
+          setLoader(false)
           navigate("/user/dashboard")
     })
-     .catch(err=>console.log(err))
+     .catch(err=>{
+        setLoader(false)
+        alert("Login with correct credentials")
+        console.log(err)})
      
      
       } else {
@@ -58,8 +65,10 @@ const UserLogin = () => {
         value={password}
         onChange={handlePasswordChange}
       />
-
-      <button className='login_button' type="submit">Log in</button>
+{ 
+loader?<img className='loader' src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif" alt="loader"/> :
+    <button className='login_button' type="submit">Log in</button>
+}
     </form>
   </div>
   )

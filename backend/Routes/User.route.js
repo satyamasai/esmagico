@@ -1,87 +1,77 @@
-
 const { Router } = require("express");
-require("dotenv").config()
+require("dotenv").config();
 const userController = Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { userModel } = require("../Models/User.model");
-
+const { Authentication } = require("../Middlewares/Authentication");
 
 // user sign up --------------------------------------------
 // --------------------------------------------------------------
 userController.post("/signup", async (req, res) => {
-  const { email, password ,name} = req.body;
+  const { email, password, name } = req.body;
   const existing_user = await userModel.findOne({ email });
 
   if (existing_user) {
-    res.send({"msg":"user already exist"})
+    res.send({ msg: "user already exist" });
     return;
   }
-  bcrypt.hash(password, 4, async(err, hash)=> {
-    if (err) {
-      res.send({"msg":"signup failed ..please try again.."});
-    } else {
-      const new_user = new userModel({
-        email,
-        password: hash,
-        name,
-        
-      });
 
-      await new_user.save();
-      res.send({"msg":"signup succesfull.."});
-    }
+  const new_user = new userModel({
+    email,
+    password,
+    name
   });
-});
 
+  await new_user.save();
+  res.send({ msg: "signup succesfull.." });
+});
 
 // ----------user-login------------------
 // ---------------------------------------
 userController.post("/login", async (req, res) => {
-    const {email, password} = req.body
+  const { email, password } = req.body;
 
-    const user = await userModel.findOne({email})
+  const user = await userModel.findOne({ email });
 
-    if(user){
+  if (user) {
+    
 
-      const hashed_password = user.password;
+    const user_id = user._id;
 
-      const user_id = user._id;
+    if (user.password == password && user.email == email) {
+      const token = jwt.sign({ user_id }, process.env.SECRET);
 
+      const email = user.email;
 
-      bcrypt.compare(password, hashed_password, function(err, result) {
-        if(err){
-          res.send({"msg" : "Something went wrong, try again later"})
-        }
-        if(result){
-        //   console.log(user)
-          const token = jwt.sign({user_id}, process.env.SECRET);  
-         
-          const email=user.email;
-         
-          const id=user._id
-           const document={
-          
-            email:email,
-           
-            id:id,
-            token:token
-           }
-          res.send({"msg": "Login successfull",document:document})
-        }
-        else{
-          res.send({"msg" : "Login failed"})
-        }
-      });
-    }else{
-      res.send({"msg":"User not found ..please login with correct credentials.."})
+      const id = user._id;
+      const document = {
+        email: email,
+
+        id: id,
+        token: token,
+      };
+      res.send({ msg: "Login successfull", document: document });
+    } else {
+      res.send({ msg: "Login failed" });
     }
-})
+  } else {
+    res.send({
+      msg: "User not found ..please login with correct credentials..",
+    });
+  }
+});
 
-
-
+// --------------user dashboard----
+// -----------------------------
+userController.get("/dashboard", Authentication, async (req, res) => {
+  // console.log(req.body,"mybody")
+  const { user_id } = req.body;
+  let user = await userModel.find({ _id: user_id });
+  console.log(user, "user");
+  res.send({ user });
+});
 
 module.exports = {
   userController,
 };
-

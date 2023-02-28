@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios"
 import "./user.css";
+import { useNavigate } from "react-router-dom";
 
 const UserSignup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loader,setLoader] = useState(false)
+  const navigate= useNavigate()
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -22,11 +25,19 @@ const UserSignup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (name && email && password) {
+        setLoader(true)
       // console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
    let signupData={name,email,password}
    axios.post("http://localhost:8080/user/signup",signupData)
-   .then((res)=>{console.log(res)})
-   .catch(err=>console.log(err))
+   .then((res)=>{console.log(res)
+    setLoader(false)
+    alert("Sign up successfull")
+    navigate("/user/login")
+}
+
+)
+   .catch(err=>{console.log(err)
+setLoader(false)})
    
    
     } else {
@@ -57,8 +68,10 @@ const UserSignup = () => {
           value={password}
           onChange={handlePasswordChange}
         />
-
-        <button className="login_button" type="submit">Sign Up</button>
+{
+    loader?<img className='loader' src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif" alt="loader"/> :
+    <button className="login_button" type="submit">Sign Up</button>
+}
       </form>
     </div>
   );
