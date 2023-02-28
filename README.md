@@ -1,4 +1,9 @@
 # esmagico
+
+You can see Live here : https://stunning-beignet-7b61cc.netlify.app/
+ 
+
+
 ## start process :- 
 1 You can clone the app on your local computer.
 2. You need to install dependencies by run command on the terminal : npm install
@@ -17,6 +22,10 @@ similarly if you want to sign up as a admin you can sign up as a admin in [ For 
 #user Sign-up:  Simply click on signup when you redirects to user-signup page :
  <img src="https://user-images.githubusercontent.com/101590753/221922583-187b7134-a263-4f54-ab61-5cc7fe517fbb.png" alt="homescrnsht"/>     
 
+
+[]:---User-dashboard 💯
+
+ <img src="https://user-images.githubusercontent.com/101590753/221923539-38bf60e8-6cf4-48c8-8b4a-82999eaf14f1.png" alt="user dashboard"/>  
 
 
 [] validation:  if you are not logged in you cannot see user dashboard / admin dash board ;
