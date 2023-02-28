@@ -12,9 +12,13 @@ You can see Live here : https://stunning-beignet-7b61cc.netlify.app/
 
 ## start process :- 
 1 You can clone the app on your local computer.
+<br/>
 2. You need to install dependencies by run command on the terminal : npm install
+<br/>
 3. then go to frontend directory and start command : npm run start
+<br/>
 4. to start backend : npm run start
+<br/>
 5. backend server port : 8080
 
 #Home page : [] In this page you can  see the navbar and ui
