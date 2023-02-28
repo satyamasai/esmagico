@@ -1,6 +1,12 @@
 # esmagico
 
 You can see Live here : https://stunning-beignet-7b61cc.netlify.app/
+
+  demo- for admin login -- email - admin@gmail.com
+                           password- admin
+                           
+          for user login -- email - stymngrya@gmail.com
+                           password- 123
  
 
 
@@ -28,15 +34,18 @@ similarly if you want to sign up as a admin you can sign up as a admin in [ For 
  <img src="https://user-images.githubusercontent.com/101590753/221923539-38bf60e8-6cf4-48c8-8b4a-82999eaf14f1.png" alt="user dashboard"/>  
 
 
+-------------------------------------------------------------------------
+
+[]:---Admin-dashboard 💯
+
+ <img src="https://user-images.githubusercontent.com/101590753/221924541-41ab29f8-7e49-4d5c-879b-cc1e77751f75.png" alt="user dashboard"/>  
+
+
+-------------------------------------------------------------------------
 [] validation:  if you are not logged in you cannot see user dashboard / admin dash board ;
   []  Admin can see all of the user and admin that is registered with the application;
   
-  demo- for admin login -- email - admin@gmail.com
-                           password- admin
-                           
-          for user login -- email - stymngrya@gmail.com
-                           password- 123
-                                             
+
                            
  
 
