@@ -1,4 +1,19 @@
 # esmagico
+Application functionality:
+This is MERN app with these pages and functionality:
+
+1.User sign-up
+<br/>
+2.User-login
+<br/>
+3.User dashboard
+<br/>
+4.Admin signup/login
+<br/>
+5. Admin dashboard
+<br/>
+
+
 
 You can see Live here : https://stunning-beignet-7b61cc.netlify.app/
 
