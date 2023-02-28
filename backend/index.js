@@ -14,7 +14,7 @@ app.get("/",(req,res)=>{
 
 })
 
-app.use("/",userController)
+app.use("/user",userController)
 
 
 

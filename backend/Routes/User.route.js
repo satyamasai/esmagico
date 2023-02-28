@@ -1,14 +1,15 @@
 
 const { Router } = require("express");
-
+require("dotenv").config()
 const userController = Router();
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const { userModel } = require("../Models/User.model");
 
 
 // user sign up --------------------------------------------
 // --------------------------------------------------------------
-userController.post("/user/signup", async (req, res) => {
+userController.post("/signup", async (req, res) => {
   const { email, password ,name} = req.body;
   const existing_user = await userModel.findOne({ email });
 
@@ -16,7 +17,7 @@ userController.post("/user/signup", async (req, res) => {
     res.send({"msg":"user already exist"})
     return;
   }
-  bcrypt.hash(password, 4, async function (err, hash) {
+  bcrypt.hash(password, 4, async(err, hash)=> {
     if (err) {
       res.send({"msg":"signup failed ..please try again.."});
     } else {
@@ -34,10 +35,9 @@ userController.post("/user/signup", async (req, res) => {
 });
 
 
-// user log-in --------------------------------------------
-// --------------------------------------------------------------
-
-userController.post("/user/login", async (req, res) => {
+// ----------user-login------------------
+// ---------------------------------------
+userController.post("/login", async (req, res) => {
     const {email, password} = req.body
 
     const user = await userModel.findOne({email})
@@ -54,16 +54,16 @@ userController.post("/user/login", async (req, res) => {
           res.send({"msg" : "Something went wrong, try again later"})
         }
         if(result){
-          console.log(user)
+        //   console.log(user)
           const token = jwt.sign({user_id}, process.env.SECRET);  
-          const name=user.name;
+         
           const email=user.email;
          
           const id=user._id
            const document={
-            name:name,
+          
             email:email,
-         
+           
             id:id,
             token:token
            }
