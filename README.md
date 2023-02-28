@@ -14,6 +14,9 @@
 similarly if you want to sign up as a admin you can sign up as a admin in [ For admin ] section ;
  <img src="https://user-images.githubusercontent.com/101590753/221922003-e4eb8fa9-70c0-4f13-b220-a3600987be9f.png" alt="homescrnsht"/>      
 
+#user Sign-up:  Simply click on signup when you redirects to user-signup page :
+ <img src="https://user-images.githubusercontent.com/101590753/221922583-187b7134-a263-4f54-ab61-5cc7fe517fbb.png" alt="homescrnsht"/>     
+
 
 
 [] validation:  if you are not logged in you cannot see user dashboard / admin dash board ;
