@@ -71,4 +71,74 @@ nav {
   }
   
 
+  .admin_options{
+    /* background: black; */
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+  }
+
+ .admin_select{
+  margin: 5px;
+  width: 120px;
+    background:navy;
+    color: rgb(230, 230, 127);
+  }
+  .admin_select>option{
+    width: 400px;
+    background-color: #313030;
+    /* color: navy; */
+  }
+/* -----drop down admin options */
+.dropbtn {
+  background-color: #131447;
+  color: rgb(231, 233, 117);
+  padding: 5px;
+  font-size: 14px;
+  border: none;
+  width: 100px;
+  border-radius: 12px;
+  height: 45px;
+  text-align: center;
+  margin: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:#131447;
+  color: yellow;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: rgb(235, 235, 122);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: navy;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #150b20;
+color: yellow;}
+
+
+
+
+
+
+
+  
+
  

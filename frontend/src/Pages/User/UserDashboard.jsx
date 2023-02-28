@@ -25,18 +25,8 @@ const UserDashboard = () => {
     setPassword(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (name && email && password) {
-      console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
-      //  let signupData={name,email,password}
-      //  axios.post("http://localhost:8080/user/signup",signupData)
-      //  .then((res)=>{console.log(res)})
-      //  .catch(err=>console.log(err))
-    } else {
-      alert("please enter correct credintials");
-    }
-  };
+
+ 
 
   // --------------------------------------
 
@@ -127,7 +117,7 @@ const UserDashboard = () => {
 {/* ------------------------------------------------------------------------------*/ }
         <div className={active ? "hidden_div" : "unhidden_div"}>
           <div className="update_container">
-            <form className="update_form" onSubmit={handleSubmit}>
+            <form className="update_form" >
               <label>Update user </label>
               <br />
               <label htmlFor="name">Name:</label>

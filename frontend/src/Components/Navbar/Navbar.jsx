@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import { FaAlignJustify, FaTimes } from "react-icons/fa";
-import { Button } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { Box, Button, Select, Text } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const adminToken = localStorage.getItem("adminToken") || "";
+
   const navigate = useNavigate();
   const handleToggle = () => {
     setToggleMenu(!toggleMenu);
@@ -13,6 +15,11 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.setItem("userToken", "");
+    navigate("/");
+  };
+
+  const handleAdminLogout = () => {
+    localStorage.setItem("adminToken", "");
     navigate("/");
   };
 
@@ -37,8 +44,20 @@ function Navbar() {
         <li>
           <a href="/user/dashboard">User Dashboard </a>
         </li>
+        {/*------------admin */}
+
+        <div class="dropdown">
+        <button class="dropbtn">For Admin</button>
+        <div class="dropdown-content">
+          <a href="/admin/signup">Admin Signup</a>
+          <a href="/admin/login">Admin login</a>
+          <a href="/admin/dashboard">Admin Dashboard</a>
+        </div>
+      </div>
+
+        {/*------------admin */}
         <li>
-          <Button onClick={handleLogout} colorScheme={"red"}>
+          <Button size={"sm"} onClick={handleLogout} colorScheme={"red"}>
             Logout
           </Button>
         </li>
