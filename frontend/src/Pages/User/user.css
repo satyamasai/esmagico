@@ -21,7 +21,7 @@
     -webkit-backdrop-filter: blur( 11px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );  
-
+color: #e5f052;
 }
   
   .login_form label {
@@ -40,7 +40,7 @@
   .login_button {
     width: 100px;
     background-color: 
-    #f7ff93;
+    #e1eb57;
     color: #0f0f0f;
     padding: 10px;
     border-radius: 3px;
@@ -73,13 +73,23 @@
     color:#e5f052;
   }
   table{
-    width: 100%;
+    width: 80%;
     border: 1px solid red;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin: auto;
+
+  }
+  tr{
+    /* display: flex; */
+    /* justify-content: space-evenly; */
   }
    th{
+  
     border: 1px solid #e5f052;
   }
   td{
+
     padding: 5px;
     color: white;
     border:  1px solid white
