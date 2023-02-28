@@ -28,7 +28,7 @@ const UserSignup = () => {
         setLoader(true)
       // console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
    let signupData={name,email,password}
-   axios.post("http://localhost:8080/user/signup",signupData)
+   axios.post("https://esmagico-backend.onrender.com/user/signup",signupData)
    .then((res)=>{console.log(res)
     setLoader(false)
     alert("Sign up successfull")

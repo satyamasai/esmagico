@@ -16,9 +16,30 @@ const AdminDashboard = () => {
   // console.log(admins,"Admmisn")
   // console.log("users",users)
 
+const handleAuto=async()=>{
+
+  
+    await fetch("https://esmagico-backend.onrender.com/admin/data", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${admintoken}` },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res.alladmins);
+        setUsers(res.allusers);
+        setRole("User");
+        // setAdmins(null);
+      })
+      .catch((err) => console.log(err));
+
+}
+useEffect(()=>{handleAuto()},[])
+
+
+
   // handle users-----------------------
   const handleUsers = async () => {
-    await fetch("http://localhost:8080/admin/data", {
+    await fetch("https://esmagico-backend.onrender.com/admin/data", {
       method: "GET",
       headers: { Authorization: `Bearer ${admintoken}` },
     })
@@ -34,7 +55,7 @@ const AdminDashboard = () => {
 
   // handle admins-----------------------
   const handleAdmins = async () => {
-    await fetch("http://localhost:8080/admin/data", {
+    await fetch("https://esmagico-backend.onrender.com/admin/data", {
       method: "GET",
       headers: { Authorization: `Bearer ${admintoken}` },
     })
@@ -82,20 +103,19 @@ const AdminDashboard = () => {
             {`These are :${role}`}
             {admins
               ? admins.map((item) => (
-                  <div className="user_card">
-                    {
+                 
                       <div className="userCard">
                         <div className="userRight">
                           <div>
                             <div>
-                              <h2>Name: {item.name}</h2>
+                              <h2><span> Name:</span> {item.name}</h2>
                             </div>
                             <div>
-                              <h3>Email: {item.email}</h3>
+                              <h3><span> Email:</span> {item.email}</h3>
                             </div>
 
-                            <div>User Id: {item._id}</div>
-                            <div>Role: {role}</div>
+                            <div><span>User ID :</span>{item._id}</div>
+                            <div><span>Role :</span> {role}</div>
                           </div>
                           <div className="userImage">
                             <img
@@ -106,8 +126,7 @@ const AdminDashboard = () => {
                           </div>
                         </div>
                       </div>
-                    }
-                  </div>
+                  
                 ))
               : ""}
 
@@ -117,14 +136,14 @@ const AdminDashboard = () => {
                     <div className="userRight">
                       <div>
                         <div>
-                          <h2>Name: {user.name}</h2>
+                          <h2> <span> Name :</span> {user.name}</h2>
                         </div>
                         <div>
-                          <h3>Email: {user.email}</h3>
+                          <h3><span> Email :</span> {user.email}</h3>
                         </div>
 
-                        <div>User Id: {user._id}</div>
-                        <div>Role:{role}</div>
+                        <div><span>USer ID : </span>  { user._id}</div>
+                        <div><span> Role : </span> {role}</div>
                       </div>
                       <div className="user_img">
                         <img

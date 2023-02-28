@@ -33,7 +33,7 @@ const UserDashboard = () => {
   // -----------------getting user data--------
   const userData = async (token) => {
     // console.log(token, "haha token");
-    await fetch("http://localhost:8080/user/dashboard", {
+    await fetch("https://esmagico-backend.onrender.com/user/dashboard", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -69,7 +69,7 @@ const UserDashboard = () => {
     // console.log(id);
     // console.log(updatedData)
     try {
-      const response = await axios.put(`http://localhost:8080/user/update/${id}`, {
+      const response = await axios.put(`https://esmagico-backend.onrender.com/user/update/${id}`, {
         updatedData,
       });
       // return response.data;

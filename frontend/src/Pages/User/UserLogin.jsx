@@ -25,7 +25,7 @@ const UserLogin = () => {
         setLoader(true)
         // console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
      let loginData={email,password}
-     axios.post("http://localhost:8080/user/login",loginData)
+     axios.post("https://esmagico-backend.onrender.com/user/login",loginData)
      .then((res)=>{
         localStorage.setItem("userToken",JSON.stringify(res.data.document.token))
           setLoader(false)

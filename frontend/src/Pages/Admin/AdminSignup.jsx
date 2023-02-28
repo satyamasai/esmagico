@@ -28,7 +28,7 @@ const AdminSignup = () => {
         setLoader(true)
       // console.log(`Name: ${name}, Email: ${email}, Password: ${password}`);
    let signupData={name,email,password}
-   axios.post("http://localhost:8080/admin/signup",signupData)
+   axios.post("https://esmagico-backend.onrender.com/admin/signup",signupData)
    .then((res)=>{console.log(res)
     setLoader(false)
     alert("Sign up successfull")

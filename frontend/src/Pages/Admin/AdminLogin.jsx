@@ -26,7 +26,7 @@ const AdminLogin = () => {
         setLoader(true)
         console.log(` Email: ${email}, Password: ${password}`);
      let loginData={email,password}
-     axios.post("http://localhost:8080/admin/login",loginData)
+     axios.post("https://esmagico-backend.onrender.com/admin/login",loginData)
      .then((res)=>{
         console.log(res)
         localStorage.setItem("adminToken",JSON.stringify(res.data.token))

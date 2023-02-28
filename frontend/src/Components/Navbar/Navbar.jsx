@@ -15,6 +15,8 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.setItem("userToken", "");
+    localStorage.setItem("adminToken", "");
+    // navigate("/");
     navigate("/");
   };
 
